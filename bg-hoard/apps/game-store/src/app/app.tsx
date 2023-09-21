@@ -15,6 +15,8 @@ import { Route, Routes, Link } from 'react-router-dom';
 import { StoreFeatureGameDetail } from '../components/Details';
 import { getAllGamesPromise } from '../fake-api/get-games';
 
+import { Header } from '@bg-hoard/ui-shared';
+
 export const App = () => {
   const [state, setState] = useState<{
     data: Game[];
@@ -48,6 +50,7 @@ export const App = () => {
 
   return (
     <>
+      <Header />
       <div className={styles.container}>
         <div className={styles['games-layout']}>
           {state.loadingState === 'loading'
