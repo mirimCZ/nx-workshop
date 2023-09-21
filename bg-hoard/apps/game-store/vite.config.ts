@@ -1,7 +1,8 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { normalize } from 'path';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/apps/game-store',
@@ -9,6 +10,11 @@ export default defineConfig({
   server: {
     port: 4200,
     host: 'localhost',
+    fs: {
+      allow: [
+        searchForWorkspaceRoot(normalize(`${__dirname}/../../`)),
+      ],
+    },
   },
 
   preview: {

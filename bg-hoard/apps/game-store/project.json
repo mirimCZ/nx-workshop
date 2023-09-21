@@ -1,5 +1,5 @@
 {
-  "name": "apps/game-store",
+  "name": "game-store",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/game-store/src",
   "projectType": "application",
@@ -24,15 +24,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "apps/game-store:build"
+        "buildTarget": "game-store:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "apps/game-store:build:development",
+          "buildTarget": "game-store:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "apps/game-store:build:production",
+          "buildTarget": "game-store:build:production",
           "hmr": false
         }
       }
@@ -41,14 +41,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "apps/game-store:build"
+        "buildTarget": "game-store:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "apps/game-store:build:development"
+          "buildTarget": "game-store:build:development"
         },
         "production": {
-          "buildTarget": "apps/game-store:build:production"
+          "buildTarget": "game-store:build:production"
         }
       }
     },
@@ -70,7 +70,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "apps/game-store:build"
+        "buildTarget": "game-store:build"
       }
     }
   },
