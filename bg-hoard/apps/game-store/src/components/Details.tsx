@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import { formatRating } from '../utils/formatter';
 import { Game } from '../interfaces/game-interface';
+import { getAllGamesPromise } from '../fake-api/get-games';
 
 export const StoreFeatureGameDetail = () => {
     let { id } = useParams();
@@ -30,11 +31,11 @@ export const StoreFeatureGameDetail = () => {
             loadingState: 'loading',
         });
         const gameId = id;
-        fetch((process.env.NX_API_URL ?? '') + `/api/games/${gameId}`)
-            .then((x) => x.json())
+        getAllGamesPromise()
             .then((res) => {
                 setState({
                     ...state,
+                    // @ts-ignore
                     data: res,
                     loadingState: 'success',
                 });
